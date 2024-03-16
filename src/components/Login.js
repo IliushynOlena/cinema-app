@@ -1,8 +1,10 @@
 import { useForm } from "react-hook-form";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { UserContext } from "../contexts/user-context";
 
 export default function Login()
 {
+    const {setUsername, clearUsername} = useContext(UserContext);
     //1 . using useRef()
     // let passRef = useRef();
     // const user = {
@@ -20,14 +22,15 @@ export default function Login()
     //     console.log(`Login data : `, user)
     // }
     //3. using useForm React Hook
-    const {
+     const {
         register,//to attrack changes of form inputs
         handleSubmit,//onSubmit event handler
         formState: { errors },//add validadors
-      } = useForm();  
+      }= useForm();  
 
     const onSubmit = (user) =>{
-        console.log(`Login data : `, user)
+        console.log(`Login data : `, user);
+        setUsername(user.email);
     }
 
     return (

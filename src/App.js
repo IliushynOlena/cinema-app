@@ -7,13 +7,10 @@ import Login from './components/Login';
 import { Link, Route, Routes } from "react-router-dom";
 
 import React, { useState } from 'react';
-import {
-HomeOutlined,
-FileDoneOutlined,
-InfoCircleOutlined,
-LoginOutlined
-} from '@ant-design/icons';
+
 import { Layout, Menu, Button, theme } from 'antd';
+import SideBar from './components/SideBar';
+import UserList from './components/UserList';
 
 const { Header, Sider, Content } = Layout;
 
@@ -25,44 +22,8 @@ function App() {
   } = theme.useToken();
   return (
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={['1']}
-          items={[
-            {
-              key: '1',            
-              icon: <Link to="/">
-                 {React.createElement(HomeOutlined)}
-                 </Link>,
-              label: 'Home',
-            },
-            {
-              key: '2',
-              icon: <Link to="/about">
-                 {React.createElement(FileDoneOutlined)}
-                 </Link>,
-              label: 'About',
-            },
-            {
-              key: '3',
-              icon: <Link to="/privacy">
-              {React.createElement(InfoCircleOutlined)}
-              </Link>,
-              label: 'Privacy',
-            },
-            {
-              key: '4',
-              icon: <Link to="/login">
-              {React.createElement(LoginOutlined)}
-              </Link>,
-              label: 'Login',
-            },
-          ]}
-        />
-      </Sider>
+     <SideBar/>
+
       <Layout>
         <Content
           style={{
@@ -77,6 +38,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/privacy" element={<Privacy />} />
+              <Route path="/users" element={<UserList />} />
               <Route path="/login" element={<Login />} />
               <Route path="*" element={<NotFound />} />
            </Routes>
