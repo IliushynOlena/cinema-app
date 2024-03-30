@@ -56,6 +56,7 @@ export default function Login()
                 <button  type="submit">Login</button>
             </div>
         </form>
+        <button  type="submit" onClick={clearUsername}>Clear UserName</button>
     </div>
     
 

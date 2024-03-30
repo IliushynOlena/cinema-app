@@ -4,17 +4,20 @@ import {
 HomeOutlined,
 FileDoneOutlined,
 InfoCircleOutlined,
-LoginOutlined, UserOutlined
+LoginOutlined, UserOutlined,NumberOutlined
 
 } from '@ant-design/icons';
 import { Layout, Menu, Button, theme } from 'antd';
 import { UserContext } from "../contexts/user-context";
+import { CounterContext } from "../contexts/counter-reducer";
+//import { CounterContext } from "../contexts/counter-context";
 
 const { Header, Sider, Content } = Layout;
 
 export default function SideBar()
 {
   const {username} = useContext(UserContext);
+  const {count} =  useContext(CounterContext);
   const [collapsed, setCollapsed] = useState(false);
 return (
 <>
@@ -22,6 +25,7 @@ return (
         <div className="demo-logo-vertical" />
         <div>
           <h3 style={{color: 'white', padding:'10px'}}>User : {username}</h3>
+          <p style={{color: 'white', padding:'10px'}}>Counter : {count}</p>
         </div>
 
 
@@ -60,6 +64,13 @@ return (
             },
             {
               key: '5',
+              icon: <Link to="/counter">
+              {React.createElement(NumberOutlined)}
+              </Link>,
+              label: 'Counter',
+            },
+            {
+              key: '6',
               icon: <Link to="/login">
               {React.createElement(LoginOutlined)}
               </Link>,

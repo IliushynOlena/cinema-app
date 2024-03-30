@@ -11,6 +11,7 @@ import React, { useState } from 'react';
 import { Layout, Menu, Button, theme } from 'antd';
 import SideBar from './components/SideBar';
 import UserList from './components/UserList';
+import Counter from './components/Counter';
 
 const { Header, Sider, Content } = Layout;
 
@@ -39,6 +40,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/users" element={<UserList />} />
+              <Route path="/counter" element={<Counter />} />
               <Route path="/login" element={<Login />} />
               <Route path="*" element={<NotFound />} />
            </Routes>
